@@ -18,10 +18,10 @@ class Controller extends Base {
     function __construct() {
         $page = 'home';
         // @comment - no need to check session at this point
-//         $this -> initSession();
-//         if(isset($_GET['page'])) {
-// 			$page = $_GET['page'];	
-//         }
+        $this -> initSession();
+        if(isset($_GET['page'])) {
+		$page = $_GET['page'];	
+        }
         
         if (isset($this->configPages[$page])) {
             // @ comment - best practice to use required when model and controlles
