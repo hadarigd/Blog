@@ -16,40 +16,41 @@ class Admin extends Base {
         $data['title'] = "Admin";
         $data['username']="";
         
-        $ArticlesModel = new ArticlesModel();
-        echo $this->render2($data,'top.php');
+        $ArticlesModel = new ArticlesModel();								//    at this point I show the TOP of the page
+        echo $this->render2($data,'top.php');								// 
         
-        if(isset($_GET['edit_id'])){
-            $id=$_GET['edit_id'];
-            $articles = $ArticlesModel->getArticles($id);
-            $data["article"] = $articles;
-            echo $this->render2($data,'edit_article.php');
-            $check_getdata = false;
+        
+        if(isset($_GET['edit_id'])){										//
+            $id=$_GET['edit_id'];											//
+            $articles = $ArticlesModel->getArticles($id);					//    at this point I show the EDIT of the page
+            $data["article"] = $articles;									//
+            echo $this->render2($data,'edit_article.php');					//
+            $check_getdata = false;											//
         }
         
-        if(isset($_POST['article_title_update'])){
-        		$ArticlesModel->updateArticles($_POST['id']);
+        if(isset($_POST['article_title_update'])){							//
+        		$ArticlesModel->updateArticles($_POST['id']);				//    at this point I show the UPDATE of the page
         	}
         
         
-        if(isset($_POST['article_title_add'])){
-            //$ArticlesModel = new ArticlesModel();
-            	$ArticlesModel -> addArticle();
-                echo $this->render2($data,'admin.php');
-                $check_getdata = false;
+        if(isset($_POST['article_title_add'])){								//
+            //$ArticlesModel = new ArticlesModel();							//
+			$ArticlesModel -> addArticle();									//    at this point I show the ADD of the page
+            echo $this->render2($data,'admin.php');							//
+            $check_getdata = false;											//
         }
         
-        if(isset($_GET['delete_article'])){
-        	echo "articol sters";
-        	$ArticlesModel->deleteArticle($_GET['delete_id']);
+        if(isset($_GET['delete_article'])){									//    at this point I show the DELETE of the page
+			echo "articol sters";											//
+			$ArticlesModel->deleteArticle($_GET['delete_id']);				//
         }
         
-        if($check_getdata){
-            $articles = $ArticlesModel->getArticles();
-            $data["article"] = $articles;
-            echo $this->render2($data,'admin.php');
-        }
-        echo $this->render2($data,'bottom.php');
+        if($check_getdata){													//
+            $articles = $ArticlesModel->getArticles();						//
+            $data["article"] = $articles;									//    at this point I show the  BOTTOM of the page
+			echo $this->render2($data,'admin.php');							//
+        }																	//
+        echo $this->render2($data,'bottom.php');							//
     }
 }
 
