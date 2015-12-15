@@ -10,7 +10,7 @@ class ArticlesModel extends Model {
             $author = $_POST['author'];
             $article_title = $_POST['article_title_add'];
             $text = $_POST['text'];
-            // @comment - you model extends MOdel, no need to instantiate new Model again
+            // @comment - you model extends MOdel, no need to instantiate new Model again >>>>>>?????????
             $datasql = new Model();
             $sql = "INSERT INTO articles (author, article_title, text) VALUES ('".$author."','".$article_title."','".$text."')";
             $datasql -> makeSql($sql, false);
