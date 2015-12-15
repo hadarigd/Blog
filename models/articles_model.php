@@ -11,11 +11,11 @@ class ArticlesModel extends Model {
             $article_title = $_POST['article_title_add'];
             $text = $_POST['text'];
             // @comment - you model extends MOdel, no need to instantiate new Model again
-        //     $datasql = new Model();
-        //     $sql = "INSERT INTO articles (author, article_title, text) VALUES ('".$author."','".$article_title."','".$text."')";
-        //     $datasql -> makeSql($sql, false);
-        // } else {
-        //     $er="Message not sent";
+            $datasql = new Model();
+            $sql = "INSERT INTO articles (author, article_title, text) VALUES ('".$author."','".$article_title."','".$text."')";
+            $datasql -> makeSql($sql, false);
+        } else {
+            $er="Message not sent";
         }
     }
     
